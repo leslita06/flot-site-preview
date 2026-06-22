@@ -65,11 +65,29 @@
         <article class="feat"><span class="feat__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M2.5 20a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.6"/><path d="M14.5 20a5 5 0 0 1 7 0"/></svg></span><h3>Tu es accompagné</h3><p>L’équipe Flot, à Abidjan, te suit pendant toute la durée.</p></article>
       </div>
     </div></section><section class="sec "><div class="wrap ">
-      <div class="callout callout--accent">
-        <p class="eyebrow eyebrow--purple">Bientôt</p>
-        <h2>Combien ça te coûte, quand la voiture devient à toi</h2>
-        <p>Un simulateur arrive ici&nbsp;: tu entres ce que tu gagnes aujourd'hui, et on te montre ton mensuel Flot et la date où la voiture devient la tienne. En attendant, le plus simple, c'est de vérifier ton éligibilité.</p>
-        <a class="btn btn--green" href="/flot-site-preview/eligibilite">Vérifier mon éligibilité</a>
+      <div class="sim" id="sim">
+        <div class="sim__head">
+          <p class="eyebrow eyebrow--purple">Simulateur</p>
+          <h2>Combien ça te coûte, quand la voiture devient à toi</h2>
+          <p>Fais glisser le curseur sur ce que tu gagnes en moyenne par jour. On te montre à quoi ressemblerait ton parcours Flot.</p>
+        </div>
+        <div class="sim__grid">
+          <div class="sim__control">
+            <label for="sim-gain" class="sim__label">Tes gains nets, en moyenne par jour</label>
+            <output class="sim__value" id="sim-gain-out">25&nbsp;000&nbsp;FCFA</output>
+            <input type="range" id="sim-gain" min="15000" max="50000" step="1000" value="25000"
+                   aria-describedby="sim-disclaimer">
+            <div class="sim__scale"><span>15&nbsp;000</span><span>50&nbsp;000&nbsp;FCFA</span></div>
+          </div>
+          <div class="sim__results">
+            <div class="sim__row"><span class="sim__rl">Ton revenu estimé par mois</span><span class="sim__rv" id="sim-rev">650&nbsp;000&nbsp;FCFA</span></div>
+            <div class="sim__row sim__row--accent"><span class="sim__rl">Mensualité Flot</span><span class="sim__rv" id="sim-month">250&nbsp;000&nbsp;FCFA</span></div>
+            <div class="sim__row"><span class="sim__rl">Ce que tu ne paies plus en carburant</span><span class="sim__rv sim__rv--green" id="sim-fuel">≈ 140&nbsp;000&nbsp;FCFA</span></div>
+            <div class="sim__row sim__row--final"><span class="sim__rl">La voiture est à toi</span><span class="sim__rv" id="sim-date">en juin&nbsp;2029</span></div>
+          </div>
+        </div>
+        <p class="sim__note" id="sim-disclaimer">Chiffres illustratifs, pour donner une idée du parcours. Ton montant exact, pensé pour rester tenable, t'est présenté avant que tu t'engages.</p>
+        <a class="btn btn--green btn--lg" href="/flot-site-preview/eligibilite">Vérifier mon éligibilité</a>
       </div>
     </div></section><section class="band band--gradient">
   <div class="wrap band__inner">
