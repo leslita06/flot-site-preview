@@ -46,7 +46,13 @@
     
   </div>
   <span class="pagehero__pat" aria-hidden="true"></span>
-</section><section class="sec "><div class="wrap ">
+</section><section class="abjband">
+      <img class="abjband__bg" src="/flot-site-preview/assets/img/abidjan-skyline.webp" alt="Le quartier du Plateau à Abidjan, vu depuis la lagune Ébrié" width="2000" height="632" loading="lazy" decoding="async">
+      <div class="wrap abjband__inner">
+        <p class="abjband__eyebrow">Abidjan · Côte d'Ivoire</p>
+        <p class="abjband__claim">Nous investissons là où nous opérons&nbsp;: une seule ville, une flotte réelle, des chauffeurs que nous connaissons.</p>
+      </div>
+    </section><section class="sec "><div class="wrap ">
       <p class="eyebrow eyebrow--purple center">Ce que vous financez</p>
       <div class="feats feats--3">
         <article class="feat"><span class="feat__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13l2-5a3 3 0 0 1 2.8-2h8.4A3 3 0 0 1 19 8l2 5"/><path d="M3 13h18v4a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1H7v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4z"/><circle cx="7.5" cy="15.5" r="1.2"/><circle cx="16.5" cy="15.5" r="1.2"/></svg></span><h3>Des véhicules électriques neufs</h3><p>Mis entre les mains de chauffeurs VTC à Abidjan, dans un cadre clair.</p></article>
@@ -64,9 +70,50 @@
       <div class="callout">
         <h2>À qui ça s'adresse</h2>
         <p>Bailleurs de fonds et institutions de financement du développement (DFI), banques et financeurs d'actifs, investisseurs à impact, fondations et programmes climat en Afrique de l'Ouest.</p>
-        <p><a class="btn btn--purple" href="/flot-site-preview/contact">Contacter l'équipe Flot <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
       </div>
-    </div></section>
+    </div></section><section class="sec" id="intention">
+      <div class="wrap">
+        <div class="iform">
+          <div class="iform__intro">
+            <p class="eyebrow eyebrow--purple">Manifester votre intérêt</p>
+            <h2>Dites-nous ce que vous envisagez</h2>
+            <p>Deux minutes suffisent. Vous pouvez raisonner en montant ou en nombre de véhicules&nbsp;— les deux nous parlent. Nous revenons vers vous avec le dossier détaillé et les prochaines étapes.</p>
+            <ul class="iform__reassure">
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7" /></svg><span>Sans engagement</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7" /></svg><span>Réponse sous 48&nbsp;h ouvrées</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7" /></svg><span>Vos informations restent confidentielles</span></li>
+            </ul>
+          </div>
+          <form class="iform__form" name="intention-investisseur" method="POST" data-netlify="true" action="/flot-site-preview/contact">
+            <input type="hidden" name="form-name" value="intention-investisseur">
+            <div class="fld"><label for="i-nom">Nom et prénom</label>
+              <input id="i-nom" name="nom" type="text" autocomplete="name" required></div>
+            <div class="fld"><label for="i-org">Organisation</label>
+              <input id="i-org" name="organisation" type="text" autocomplete="organization" placeholder="Fonds, banque, family office…"></div>
+            <div class="fld"><label for="i-email">Email professionnel</label>
+              <input id="i-email" name="email" type="email" autocomplete="email" required></div>
+            <div class="fld"><label for="i-pays">Localisation</label>
+              <input id="i-pays" name="localisation" type="text" placeholder="Ville, pays" autocomplete="country-name"></div>
+
+            <fieldset class="fld fld--full">
+              <legend>Votre intention, exprimée en&nbsp;:</legend>
+              <div class="seg">
+                <label class="seg__opt"><input type="radio" name="unite" value="fcfa" checked><span>Montant (FCFA)</span></label>
+                <label class="seg__opt"><input type="radio" name="unite" value="vehicules"><span>Nombre de véhicules</span></label>
+              </div>
+            </fieldset>
+            <div class="fld fld--full"><label for="i-montant">Ordre de grandeur envisagé</label>
+              <input id="i-montant" name="montant" type="text" inputmode="numeric" placeholder="Ex. 50 000 000 FCFA — ou 10 véhicules">
+              <span class="fld__hint">Une fourchette suffit à ce stade.</span></div>
+            <div class="fld fld--full"><label for="i-msg">Un mot sur votre intérêt <span class="opt">(facultatif)</span></label>
+              <textarea id="i-msg" name="message" rows="3" placeholder="Mandat d'impact, horizon, questions…"></textarea></div>
+            <div class="fld fld--full">
+              <button class="btn btn--purple" type="submit">Envoyer mon intention <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
 </main>
 <footer class="site-footer">
   <div class="wrap footer__grid">
