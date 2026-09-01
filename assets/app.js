@@ -107,6 +107,39 @@
     });
   });
 
+  // --- formulaire investisseurs -> tableur ---
+  // Adresse /exec du deploiement Apps Script, a coller ici (voir FORMULAIRE.md).
+  // Tant qu'elle n'est pas renseignee, le formulaire ne pretend PAS avoir envoye.
+  var ENDPOINT_INVESTISSEURS = '__ENDPOINT_INVESTISSEURS__';
+  document.querySelectorAll('form.js-post-form').forEach(function(f){
+    function ecran(titre, texte, ok){
+      f.innerHTML = '<div class="fld fld--full" style="text-align:center;padding:24px 6px">'+
+        '<h3 style="margin:0 0 8px">'+titre+'</h3><p style="margin:0">'+texte+'</p></div>';
+      f.setAttribute('data-etat', ok ? 'envoye' : 'echec');
+    }
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(f.checkValidity && !f.checkValidity()){ if(f.reportValidity) f.reportValidity(); return; }
+      var secours = f.getAttribute('data-secours') || '';
+      if(ENDPOINT_INVESTISSEURS.indexOf('http') !== 0){
+        ecran('Envoi indisponible', 'Nous ne pouvons pas enregistrer votre demande pour le moment. ' + secours, false);
+        return;
+      }
+      var data = Object.fromEntries(new FormData(f).entries());
+      data.page = location.pathname; data.source = 'site flot.africa';
+      var b = f.querySelector('[type=submit]');
+      if(b){ b.disabled = true; b.textContent = 'Envoi en cours...'; }
+      fetch(ENDPOINT_INVESTISSEURS, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+                                     body: JSON.stringify(data)})
+        .then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); })
+        .then(function(){ ecran('Bien recu', 'Merci. Nous revenons vers vous sous 48 h ouvrees.', true); })
+        .catch(function(){
+          ecran('L\'envoi a echoue', 'Votre demande n\'a pas pu etre transmise. ' + secours, false);
+          if(b){ b.disabled = false; b.textContent = 'Envoyer mon intention'; }
+        });
+    });
+  });
+
   // --- simulateur (chiffres illustratifs) ---
   var g=document.getElementById('sim-gain');
   if(g){
