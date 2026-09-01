@@ -107,7 +107,7 @@
     });
   });
 
-  // --- formulaire investisseurs -> tableur ---
+  // --- formulaire investisseurs -> boite des deux fondateurs ---
   // Adresse /exec du deploiement Apps Script, a coller ici (voir FORMULAIRE.md).
   // Tant qu'elle n'est pas renseignee, le formulaire ne pretend PAS avoir envoye.
   var ENDPOINT_INVESTISSEURS = '__ENDPOINT_INVESTISSEURS__';
@@ -132,7 +132,7 @@
       fetch(ENDPOINT_INVESTISSEURS, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
                                      body: JSON.stringify(data)})
         .then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); })
-        .then(function(){ ecran('Bien recu', 'Merci. Nous revenons vers vous sous 48 h ouvrees.', true); })
+        .then(function(){ ecran('Bien recu', 'Merci. Votre demande est arrivee chez l\'equipe Flot, qui revient vers vous sous 48 h ouvrees.', true); })
         .catch(function(){
           ecran('L\'envoi a echoue', 'Votre demande n\'a pas pu etre transmise. ' + secours, false);
           if(b){ b.disabled = false; b.textContent = 'Envoyer mon intention'; }
