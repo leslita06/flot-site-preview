@@ -534,7 +534,7 @@ fieldset.fld{border:0;padding:0;margin:0}
   .wa-fab .wa-ic{width:1.7em;height:1.7em}
 }
 
-/* ============================ retours du designer — 10/08/26 ============================ */
+/* ============================ retours du designer, 10/08/26 ============================ */
 
 /* Barre de confiance remontée dans le hero, sous les deux boutons. */
 .hero__trust{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;list-style:none;padding:0;
@@ -580,7 +580,7 @@ fieldset.fld{border:0;padding:0;margin:0}
 .faqs+.center{margin-top:30px}
 .steps+.center,.feats+.center{margin-top:30px}
 
-/* Témoignages : structure volontairement différente du bloc du dessus — plus de cartes
+/* Témoignages : structure volontairement différente du bloc du dessus, plus de cartes
    encadrées, mais des colonnes séparées par un filet, sur fond crème. */
 .sec--quotes{background:#F4F1EA}
 .sec--quotes .tgrid{gap:0;margin-top:42px}
@@ -626,7 +626,7 @@ fieldset.fld{border:0;padding:0;margin:0}
 .vhot--gauche .vhot__pop{left:auto;right:36px;transform-origin:right center}
 /* Panneau mobile : la bulle ancrée au point sortait du cadre (le conteneur de référence
    est le bouton, minuscule). Sous 760 px on affiche donc un panneau unique en bas de
-   l'image, rempli par le JS — place constante, jamais coupée, jamais débordante. */
+   l'image, rempli par le JS, place constante, jamais coupée, jamais débordante. */
 .vpop-mob{display:none}
 @media(max-width:760px){
   .vhot__lbl,.vhot__pop{display:none}
@@ -643,7 +643,7 @@ fieldset.fld{border:0;padding:0;margin:0}
   .vpop-mob b{display:block;font-weight:700;color:var(--navy);margin-bottom:5px;font-size:.94rem}
 }
 
-/* Vue 360° manipulable — activée dès que des images sont déposées dans assets/img/veh360/. */
+/* Vue 360° manipulable, activée dès que des images sont déposées dans assets/img/veh360/. */
 .v360{position:relative;cursor:grab;touch-action:pan-y;user-select:none}
 .v360:active{cursor:grabbing}
 .v360 .v360__f{display:none;width:100%;height:auto}
