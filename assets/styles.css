@@ -47,7 +47,6 @@ strong{font-weight:700}
 @media(max-width:430px){
   .btn--lg{padding:.9em 1.15em;font-size:.95rem}
   .btn{max-width:100%;white-space:normal;text-align:center}
-  .pagehero__pat{right:-90px;width:180px;height:180px}
 }
 .btn--green{background:var(--green);color:var(--navy);border-color:var(--green)}
 .btn--green:hover{background:#00cf6f;border-color:#00cf6f;transform:translateY(-2px)}
@@ -104,8 +103,8 @@ strong{font-weight:700}
   box-shadow:0 16px 40px -16px rgba(43,45,66,.45);border-radius:16px;padding:14px 18px}
 .hero__badge strong{font-size:1.5rem;font-weight:800;color:var(--navy);letter-spacing:-.02em}
 .hero__badge span{font-size:.82rem;color:var(--muted);font-weight:600;margin-top:2px}
-.hero__pattern{position:absolute;right:-22px;top:-22px;width:50%;height:50%;border-radius:24px;z-index:1;
-  background-image:url('img/pattern-dynamisme.webp');background-size:cover;opacity:.9}
+.hero__pattern{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:url('img/patterns/pattern_dynamisme_green.svg');background-size:200px;background-repeat:repeat}
 
 /* ---- stat band ---- */
 .statband{background:linear-gradient(110deg,var(--navy) 0%,#23253a 55%,#2a1c44 100%);color:#fff}
@@ -155,7 +154,7 @@ strong{font-weight:700}
 .callout--green p{color:#d3d5e0}
 
 /* pattern strip */
-.patternstrip{height:14px;background-image:url('img/pattern-vision.webp');background-size:auto 100%;background-repeat:repeat-x}
+.patternstrip{height:104px;background:var(--green) url('img/patterns/pattern_dynamisme.svg') center/200px repeat}
 
 /* acronym */
 .acro{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:760px;margin:34px auto 0}
@@ -181,8 +180,8 @@ strong{font-weight:700}
 .band--green{background:var(--green)}
 .band--navy{background:var(--navy)}
 .band--gradient{background:linear-gradient(115deg,var(--navy) 0%,#2c1a52 60%,var(--purple) 140%);position:relative;overflow:hidden}
-.band--gradient::after{content:"";position:absolute;right:-40px;top:-40px;width:280px;height:280px;border-radius:50%;
-  background-image:url('img/pattern-vision.webp');background-size:cover;opacity:.12;pointer-events:none}
+.band--gradient::after{content:"";position:absolute;inset:0;
+  background-image:url('img/patterns/pattern_vision.svg');background-size:200px;background-repeat:repeat;pointer-events:none}
 .band__inner{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;position:relative;z-index:1}
 .band__actions{display:flex;gap:12px;flex-wrap:wrap}
 .band--green h2{color:var(--navy)}
@@ -194,8 +193,9 @@ strong{font-weight:700}
 .pagehero{position:relative;background:var(--soft);padding:64px 0 56px;overflow:hidden;border-bottom:1px solid var(--line)}
 .pagehero h1{max-width:14em}
 .pagehero .lead{font-size:1.18rem;color:#3c3f54;max-width:40em}
-.pagehero__pat{position:absolute;right:-60px;top:-60px;width:230px;height:230px;border-radius:50%;
-  background-image:url('img/pattern-discipline.webp');background-size:cover;opacity:.16}
+.pagehero__pat{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:url('img/patterns/pattern_methodicite.svg');background-size:200px;background-repeat:repeat}
+.pagehero>.wrap{position:relative;z-index:1}
 
 /* posts */
 .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -342,7 +342,7 @@ a.post:hover{box-shadow:var(--shadow);transform:translateY(-2px);border-color:va
 .impact__src{color:#9a9db5;font-size:.85rem;margin:30px 0 0}
 
 /* ---- partenaires ---- */
-.partners{padding:34px 0 8px;text-align:center}
+.partners{padding:34px 0 48px;text-align:center}
 .partners__label{font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
 .partners__row{list-style:none;margin:0 auto;padding:0;display:flex;flex-wrap:wrap;
   justify-content:center;align-items:center;gap:14px 30px;max-width:980px}
@@ -533,3 +533,130 @@ fieldset.fld{border:0;padding:0;margin:0}
   .wa-fab{padding:14px;right:14px;bottom:14px}
   .wa-fab .wa-ic{width:1.7em;height:1.7em}
 }
+
+/* ============================ retours du designer — 10/08/26 ============================ */
+
+/* Barre de confiance remontée dans le hero, sous les deux boutons. */
+.hero__trust{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;list-style:none;padding:0;
+  margin:26px 0 0;border-top:1px solid var(--line);padding-top:18px}
+.hero__trust li{display:flex;flex-direction:column;line-height:1.25}
+.hero__trust strong{font-size:1.16rem;font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.hero__trust span{font-size:.82rem;color:var(--muted);margin-top:3px}
+@media(max-width:520px){
+  .hero__trust{grid-template-columns:1fr;gap:10px}
+  .hero__trust li{flex-direction:row;align-items:baseline;gap:.6em}
+  .hero__trust span{margin-top:0}
+}
+/* Mobile : liseret sous les stats, photo en pleine largeur */
+@media(max-width:640px){
+  .hero__trust{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:26px}
+  .hero__media{max-width:none;width:calc(100% + 44px);margin:0 -22px}
+  .hero__media img{border-radius:0}
+  .hero__badge{left:14px}
+}
+
+/* Le véhicule, sur fond violet de marque : casse la suite de blancs et de gris. */
+.sec--vehicle{background:linear-gradient(160deg,#7014F3 0%,#5A0FC6 100%);color:#fff;position:relative;overflow:hidden}
+.sec--vehicle::after{content:"";position:absolute;inset:auto -80px -120px auto;width:340px;height:340px;
+  border-radius:50%;background:radial-gradient(circle,rgba(0,230,123,.35),transparent 68%);pointer-events:none}
+.sec--vehicle h2,.sec--vehicle strong{color:#fff}
+.sec--vehicle p{color:rgba(255,255,255,.86)}
+.eyebrow--onpurple{color:var(--green)}
+.vmodel{margin:30px 0 0;border-radius:22px;overflow:hidden;position:relative;
+  box-shadow:0 30px 70px -30px rgba(9,3,26,.75)}
+.vmodel img{width:100%;height:auto;display:block}
+.vmodel figcaption{position:absolute;left:16px;bottom:14px;background:rgba(14,16,24,.72);color:#fff;
+  font-size:.84rem;font-weight:600;padding:7px 13px;border-radius:999px;backdrop-filter:blur(4px)}
+.sec--vehicle .vspec{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.22)}
+.sec--vehicle .vspec strong{color:#fff}
+.sec--vehicle .vspec span{color:rgba(255,255,255,.78)}
+.sec--vehicle .vspec__ic{color:var(--green)}
+
+/* La colonne « avec Flot » se lit d'un coup d'œil : fond vert de marque. */
+.ba__col--yes{background:#D8F7E7;border-color:rgba(0,230,123,.75)}
+
+/* De l'air au-dessus des boutons qui referment une section. */
+.sec .btn--navy,.sec .btn--ghost{margin-top:14px}
+.faqs+.center{margin-top:30px}
+.steps+.center,.feats+.center{margin-top:30px}
+
+/* Témoignages : structure volontairement différente du bloc du dessus — plus de cartes
+   encadrées, mais des colonnes séparées par un filet, sur fond crème. */
+.sec--quotes{background:#F4F1EA}
+.sec--quotes .tgrid{gap:0;margin-top:42px}
+.sec--quotes .tcard{background:none;border:0;border-left:1px solid #DCD5C6;border-radius:0;
+  padding:4px 26px 0;gap:26px}
+.sec--quotes .tcard:first-child{border-left:0;padding-left:0}
+.tcard__n{font-size:.78rem;font-weight:600;letter-spacing:.06em;color:#8C8676}
+.sec--quotes .tcard__q{font-size:1.02rem;line-height:1.6}
+.sec--quotes .tcard__who img{width:44px;height:44px}
+.sec--quotes .tcard__id strong{font-size:.95rem}
+@media(max-width:920px){
+  .sec--quotes .tcard{border-left:0;border-top:1px solid #DCD5C6;padding:24px 0 0}
+  .sec--quotes .tcard:first-child{border-top:0;padding-top:4px}
+}
+
+/* Exploration du véhicule : points d'intérêt posés sur la photo officielle. */
+.vexplore{position:relative}
+.vhot{position:absolute;transform:translate(-50%,-50%);z-index:3;background:none;border:0;padding:0;
+  cursor:pointer;display:flex;align-items:center;gap:9px;font:inherit;color:inherit}
+.vhot__dot{width:26px;height:26px;border-radius:50%;flex:0 0 auto;position:relative;
+  background:var(--green);box-shadow:0 0 0 4px rgba(255,255,255,.55),0 6px 16px rgba(9,3,26,.35)}
+.vhot__dot::before,.vhot__dot::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  background:var(--navy);border-radius:2px}
+.vhot__dot::before{width:11px;height:2.5px}
+.vhot__dot::after{width:2.5px;height:11px}
+.vhot[aria-expanded="true"] .vhot__dot::after{display:none}
+.vhot__lbl{background:rgba(14,16,24,.78);color:#fff;font-size:.83rem;font-weight:600;white-space:nowrap;
+  padding:5px 11px;border-radius:999px;backdrop-filter:blur(4px)}
+.vhot__pop{position:absolute;left:36px;top:50%;transform:translateY(-50%) scale(.96);transform-origin:left center;
+  width:250px;background:#fff;color:var(--ink);border-radius:14px;padding:14px 16px;font-size:.9rem;
+  line-height:1.45;box-shadow:0 20px 44px -14px rgba(9,3,26,.5);opacity:0;visibility:hidden;
+  transition:opacity .16s,transform .16s;text-align:left;white-space:normal;z-index:4}
+.vhot[aria-expanded="true"] .vhot__pop{opacity:1;visibility:visible;transform:translateY(-50%) scale(1)}
+/* une fois ouverte, la bulle porte le titre : l'étiquette du point disparaît. */
+.vhot[aria-expanded="true"] .vhot__lbl{opacity:0;pointer-events:none}
+.vhot__pop b{display:block;font-family:inherit;font-weight:700;color:var(--navy);margin-bottom:5px;font-size:.94rem}
+/* quand une bulle est ouverte, les autres étiquettes s'effacent pour ne pas encombrer */
+.vexplore:has(.vhot[aria-expanded="true"]) .vhot[aria-expanded="false"] .vhot__lbl{opacity:.28}
+.vexplore:has(.vhot[aria-expanded="true"]) .vhot[aria-expanded="false"] .vhot__dot{opacity:.55}
+.vhot__lbl,.vhot__dot{transition:opacity .18s}
+.vhot:focus-visible{outline:3px solid #fff;outline-offset:4px;border-radius:999px}
+/* Sur la moitié droite de la photo, la bulle s'ouvre vers la gauche pour rester dans le cadre. */
+.vhot--gauche .vhot__pop{left:auto;right:36px;transform-origin:right center}
+/* Panneau mobile : la bulle ancrée au point sortait du cadre (le conteneur de référence
+   est le bouton, minuscule). Sous 760 px on affiche donc un panneau unique en bas de
+   l'image, rempli par le JS — place constante, jamais coupée, jamais débordante. */
+.vpop-mob{display:none}
+@media(max-width:760px){
+  .vhot__lbl,.vhot__pop{display:none}
+  /* purement informatif : il ne doit pas intercepter les clics des points qu'il recouvre */
+  /* Sous 760 px, l'image ne fait que ~290 px de haut : une bulle en surimpression
+     mangeait la voiture. Le panneau se place donc SOUS la photo, dans le flux. */
+  .vpop-mob{display:block;background:#fff;color:var(--ink);border-radius:14px;
+    padding:0 16px;font-size:.92rem;line-height:1.5;margin-top:0;max-height:0;overflow:hidden;
+    box-shadow:0 14px 34px -18px rgba(9,3,26,.45);transition:max-height .2s ease,margin-top .2s ease,padding .2s ease}
+  .vpop-mob.on{max-height:260px;margin-top:14px;padding:15px 16px}
+  /* la légende en surimpression couvrait un point : sous 760 px elle passe sous la photo */
+  .vexplore figcaption{position:static;background:none;backdrop-filter:none;padding:10px 2px 0;
+    color:rgba(255,255,255,.9);font-size:.82rem;line-height:1.4}
+  .vpop-mob b{display:block;font-weight:700;color:var(--navy);margin-bottom:5px;font-size:.94rem}
+}
+
+/* Vue 360° manipulable — activée dès que des images sont déposées dans assets/img/veh360/. */
+.v360{position:relative;cursor:grab;touch-action:pan-y;user-select:none}
+.v360:active{cursor:grabbing}
+.v360 .v360__f{display:none;width:100%;height:auto}
+.v360 .v360__f.on{display:block}
+.v360__hint{position:absolute;left:50%;bottom:58px;transform:translateX(-50%);z-index:3;
+  display:flex;align-items:center;gap:7px;background:rgba(14,16,24,.74);color:#fff;
+  font-size:.83rem;font-weight:600;padding:7px 14px;border-radius:999px;backdrop-filter:blur(4px);
+  transition:opacity .25s}
+.v360.touche .v360__hint{opacity:0}
+.v360:focus-visible{outline:3px solid var(--green);outline-offset:4px}
+
+/* Pages secondaires : un fond pastel différent d'une page à l'autre. */
+.pagehero--menthe{background:#E8FBF1}
+.pagehero--ciel{background:#E6F5FE}
+.pagehero--lilas{background:#F1EAFE}
+.pagehero--sable{background:#FBF4E8}
